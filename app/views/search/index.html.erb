@@ -1,9 +1,13 @@
-Stores Within 25 miles of <%= @store.zipcode %>
+Stores Within 25 miles of <%= params['q'] %>
 
+<h3><%= @stores.count %> Stores</h3>
+<ul>
 <% @stores.each do |store| %>
-  <%= store.name %>
-  <%= store.store_id %>
-  <%= store.store_type %>
-  <%= store.city %>
-  <%= store.phone %>
+  <li><%= store.name %></li>
+  <li><%= store.store_id %></li>
+  <li><%= store.store_type %></li>
+  <li><%= store.city %></li>
+  <li><%= store.phone %></li>
+  <br><br>
 <% end %>
+</ul>
