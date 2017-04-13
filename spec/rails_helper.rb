@@ -8,12 +8,13 @@ require 'rspec/rails'
 require 'webmock/rspec'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'faraday'
 require 'vcr'
 
 VCR.configure do |config|
   config.cassette_library_dir = "spec/cassettes"
   config.hook_into :webmock
-  config.filter_sensitive_data('<API_KEY>') { ENV['API_KEY'] }
+  config.filter_sensitive_data('<api_key>') { ENV['api_key'] }
   config.ignore_localhost = true
   config.allow_http_connections_when_no_cassette = true
 end
@@ -42,6 +43,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.include Capybara::DSL
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
