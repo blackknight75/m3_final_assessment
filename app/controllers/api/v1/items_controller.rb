@@ -10,6 +10,7 @@ class Api::V1::ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    item.destroy
+    render json: "You successfully deleted item" if item.destroy
+    render json: "You failed to deleted item" if !item.destroy
   end
 end
