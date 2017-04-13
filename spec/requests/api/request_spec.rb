@@ -27,4 +27,18 @@ describe "Items", type: :request do
   expect(item[:name]).to eq("stuff")
   expect(item[:description]).to eq("some stuff")
   end
+
+  it "deletes a single item" do
+    item = Item.create(name: "stuff", description: "some stuff", image_url: "https://placehold.it/300x300.png/000")
+    Item.create(name: "more stuff", description: "some stuff", image_url: "https://placehold.it/300x300.png/000")
+
+    expect(Item.all.count).to eq 2
+
+    delete "/api/v1/items/#{item.id}"
+
+    expect(response).to be_success
+    expect(Item.all.count).to eq 1
+    expect(Item.first.name).to eq "more stuff"
+    expect(Item.first.name).to_not eq "stuff"
+  end
 end
