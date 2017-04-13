@@ -15,6 +15,7 @@ gem 'faraday'
 gem 'vcr'
 gem 'webmock'
 gem 'figaro'
+gem 'active_model_serializers', '0.9.3'
 
 group :development do
   gem "spring"
