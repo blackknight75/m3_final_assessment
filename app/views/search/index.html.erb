@@ -1,1 +1,9 @@
-Stores Near
+Stores Within 25 miles of <%= @store.zipcode %>
+
+<% @stores.each do |store| %>
+  <%= store.name %>
+  <%= store.store_id %>
+  <%= store.store_type %>
+  <%= store.city %>
+  <%= store.phone %>
+<% end %>

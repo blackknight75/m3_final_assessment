@@ -1,7 +1,20 @@
 class Store
+  attr_reader :store_id,
+              :store_type,
+              :city,
+              :name,
+              :phone,
+              :distance,
+              :zipcode
 
   def initialize(params)
-    binding.pry
+    @store_id = params[:storeId]
+    @store_type = params[:storeType]
+    @city = params[:city]
+    @name = params[:longName]
+    @phone = params[:phone]
+    @distance = params[:distance]
+    @zipcode = params[:postalCode]
   end
 
   def self.find_stores(zipcode)
