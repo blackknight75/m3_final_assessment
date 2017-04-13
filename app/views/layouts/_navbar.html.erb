@@ -9,6 +9,12 @@
     <a class="navbar-brand" href="/">Storedom</a>
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <%= form_tag :search, method: :get, class: "form-inline" do %>
+    <div class="form-group search-field">
+      <%= text_field_tag :q, "Search by zip...", class: "form-control" %>
+      <%= submit_tag "Locate", class: "btn btn-primary" %>
+    </div>
+    <% end %></nav>
     <ul class="nav navbar-nav">
       <li>
         <a href="/">Items</a>
@@ -21,4 +27,3 @@
       </li>
     </ul>
   </div>
-</nav>
