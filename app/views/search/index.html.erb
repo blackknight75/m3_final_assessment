@@ -1,6 +1,5 @@
 Stores Within 25 miles of <%= params['q'] %>
-
-<h3><%= @stores.count %> Stores</h3>
+<h3><%= Store.store_count(params['q']) %> Stores</h3>
 
 <ul>
   <% @stores.each do |store| %>
@@ -12,3 +11,4 @@ Stores Within 25 miles of <%= params['q'] %>
     <br><br>
   <% end %>
 </ul>
+<%= paginate @stores %>

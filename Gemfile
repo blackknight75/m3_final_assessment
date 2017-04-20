@@ -16,6 +16,7 @@ gem 'vcr'
 gem 'webmock'
 gem 'figaro'
 gem 'active_model_serializers', '0.9.3'
+gem 'kaminari'
 
 group :development do
   gem "spring"

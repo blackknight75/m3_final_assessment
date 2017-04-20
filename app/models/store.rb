@@ -23,4 +23,8 @@ class Store
       Store.new(store)
     end
   end
+
+  def self.store_count(zipcode)
+    Store.find_stores(zipcode).count
+  end
 end
